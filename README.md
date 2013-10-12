@@ -1,1 +1,1 @@
-An android application to get and respond to feeds from various social network applications.
+This is the example in the book Learning Android.
