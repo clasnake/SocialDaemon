@@ -14,5 +14,7 @@
     <string name="summary_username">This is the username.</string>
     <string name="summary_password">This is the password.</string>
     <string name="summary_urlroot">This is the urlroot.</string>
+    <string name="title_service_start">Start Service</string>
+    <string name="title_service_stop">Stop Service</string>
 
 </resources>

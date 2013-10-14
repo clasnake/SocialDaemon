@@ -23,7 +23,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class StatusActivity extends Activity implements OnClickListener, TextWatcher, OnSharedPreferenceChangeListener{
+public class StatusActivity extends Activity implements OnClickListener, TextWatcher{
 	private static final String TAG = "StatusActivity";
 	EditText editText;
 	Button updateButton;
@@ -35,7 +35,8 @@ public class StatusActivity extends Activity implements OnClickListener, TextWat
 		@Override
 		protected String doInBackground(String... statuses){
 			try{
-				Twitter.Status status = getTwitter().updateStatus(statuses[0]);
+				DaemonApplication daemon = (DaemonApplication) getApplication();
+				Twitter.Status status = daemon.getTwitter().updateStatus(statuses[0]);
 				return status.text;
 			}catch(TwitterException e){
 				Log.e(TAG, e.toString());
@@ -68,28 +69,9 @@ public class StatusActivity extends Activity implements OnClickListener, TextWat
         editText.addTextChangedListener(this);
         
         updateButton.setOnClickListener(this);
-        prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        prefs.registerOnSharedPreferenceChangeListener((OnSharedPreferenceChangeListener) this);
+        
     }
 	
-	private Twitter getTwitter(){
-		if(twitter == null){
-			String username, password, apiRoot;
-			username = prefs.getString("username", "");
-			password = prefs.getString("password", "");
-			apiRoot = prefs.getString("urlroot", "http://yamba.marakana.com/api");
-			
-			twitter = new Twitter(username, password);
-			twitter.setAPIRootUrl(apiRoot);
-		}
-		return twitter;
-		
-	}
-
-	public void onSharedPreferenceChanged(SharedPreferences prefs, String key){
-		twitter = null;
-	}
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -103,7 +85,13 @@ public class StatusActivity extends Activity implements OnClickListener, TextWat
     	switch(item.getItemId()){
     		case R.id.itemPrefs:
     			startActivity(new Intent(this, PrefsActivity.class));
-    		break;
+    			break;
+    		case R.id.itemServiceStart:
+    			startService(new Intent(this, UpdaterService.class));
+    			break;
+    		case R.id.itemServiceStop:
+    			stopService(new Intent(this, UpdaterService.class));
+    			break;
     	}
     	return true;
     }

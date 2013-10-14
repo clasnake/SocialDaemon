@@ -25,10 +25,12 @@ public final class R {
         public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f090004;
+        public static final int action_settings=0x7f090006;
         public static final int buttonUpdate=0x7f090002;
         public static final int editText=0x7f090001;
         public static final int itemPrefs=0x7f090003;
+        public static final int itemServiceStart=0x7f090004;
+        public static final int itemServiceStop=0x7f090005;
         public static final int textCount=0x7f090000;
     }
     public static final class layout {
@@ -49,6 +51,8 @@ public final class R {
         public static final int summary_username=0x7f06000a;
         public static final int title_password=0x7f060007;
         public static final int title_prefs=0x7f060008;
+        public static final int title_service_start=0x7f06000d;
+        public static final int title_service_stop=0x7f06000e;
         public static final int title_status=0x7f060003;
         public static final int title_urlroot=0x7f060009;
         public static final int title_username=0x7f060006;
