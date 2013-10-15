@@ -1,11 +1,8 @@
 package com.clasnake.socialdaemon;
 
-import java.util.List;
-
-import winterwell.jtwitter.Twitter;
-import winterwell.jtwitter.TwitterException;
 import android.app.Service;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.IBinder;
 import android.util.Log;
 
@@ -16,6 +13,7 @@ public class UpdaterService extends Service{
 	private boolean runFlag = false;
 	private Updater updater;
 	private DaemonApplication daemon;
+	SQLiteDatabase db;
 
 	@Override
 	public void onCreate() {
@@ -55,7 +53,7 @@ public class UpdaterService extends Service{
 	}
 	
 	private class Updater extends Thread{
-		List<Twitter.Status> timeline;
+
 		public Updater(){
 			super("UpdaterService-Updater");
 		}
@@ -67,15 +65,11 @@ public class UpdaterService extends Service{
 			while(updaterService.runFlag){
 				Log.d(TAG, "Updater running");
 				try{
-					try{
-						timeline = daemon.getTwitter().getFriendsTimeline();
-					}catch(TwitterException e){
-						Log.e(TAG, "Failed to connect to twitter service");
+//					DaemonApplication daemon = (DaemonApplication)updaterService.getApplication();
+					int newUpdates = UpdaterService.this.daemon.fetchStatusUpdates();
+					if(newUpdates > 0){
+						Log.d(TAG, "We have a new status");
 					}
-					for(Twitter.Status status : timeline){
-						Log.d(TAG, String.format("%s: %s", status.user.name, status.text));
-					}
-					Log.d(TAG, "Updater ran");
 					Thread.sleep(DELAY);
 				}catch(InterruptedException e){
 					updaterService.runFlag = false;
