@@ -19,6 +19,18 @@ public class DaemonApplication extends Application implements OnSharedPreference
 	private boolean serviceRunning;
 	private StatusData statusData;
 	
+	public SharedPreferences getPrefs() {
+		return prefs;
+	}
+
+	public void setPrefs(SharedPreferences prefs) {
+		this.prefs = prefs;
+	}
+
+	public void setStatusData(StatusData statusData) {
+		this.statusData = statusData;
+	}
+
 	@Override
 	public void onCreate(){
 		super.onCreate();

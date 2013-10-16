@@ -16,5 +16,6 @@
     <string name="summary_urlroot">This is the urlroot.</string>
     <string name="title_service_start">Start Service</string>
     <string name="title_service_stop">Stop Service</string>
+    <string name="title_timeline">My timeline</string>
 
 </resources>
