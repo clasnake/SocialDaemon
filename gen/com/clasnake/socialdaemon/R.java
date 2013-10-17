@@ -25,22 +25,33 @@ public final class R {
         public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f090007;
+        public static final int action_settings=0x7f09000f;
         public static final int buttonUpdate=0x7f090002;
         public static final int editText=0x7f090001;
-        public static final int itemPrefs=0x7f090004;
-        public static final int itemServiceStart=0x7f090005;
-        public static final int itemServiceStop=0x7f090006;
+        public static final int itemPrefs=0x7f090008;
+        public static final int itemPurge=0x7f09000d;
+        public static final int itemServiceStart=0x7f090009;
+        public static final int itemServiceStop=0x7f09000a;
+        public static final int itemStatus=0x7f09000b;
+        public static final int itemTimeline=0x7f09000c;
+        public static final int itemToggleService=0x7f09000e;
+        public static final int listTimeline=0x7f090006;
         public static final int textCount=0x7f090000;
-        public static final int textTimeline=0x7f090003;
+        public static final int textCreatedAt=0x7f090004;
+        public static final int textText=0x7f090005;
+        public static final int textTimeline=0x7f090007;
+        public static final int textUser=0x7f090003;
     }
     public static final class layout {
         public static final int activity_status=0x7f030000;
-        public static final int timeline_basic=0x7f030001;
+        public static final int row=0x7f030001;
+        public static final int timeline=0x7f030002;
+        public static final int timeline_basic=0x7f030003;
     }
     public static final class menu {
         public static final int menu=0x7f080000;
-        public static final int status=0x7f080001;
+        public static final int menu1=0x7f080001;
+        public static final int status=0x7f080002;
     }
     public static final class string {
         public static final int action_settings=0x7f060001;
@@ -53,6 +64,7 @@ public final class R {
         public static final int summary_username=0x7f06000a;
         public static final int title_password=0x7f060007;
         public static final int title_prefs=0x7f060008;
+        public static final int title_purge=0x7f060010;
         public static final int title_service_start=0x7f06000d;
         public static final int title_service_stop=0x7f06000e;
         public static final int title_status=0x7f060003;

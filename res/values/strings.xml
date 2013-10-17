@@ -17,5 +17,6 @@
     <string name="title_service_start">Start Service</string>
     <string name="title_service_stop">Stop Service</string>
     <string name="title_timeline">My timeline</string>
+    <string name="title_purge">Purge</string>
 
 </resources>

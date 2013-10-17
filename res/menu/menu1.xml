@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <item android:id="@+id/itemStatus" android:title="@string/title_status"></item>
+  <item android:title="@string/title_timeline" android:id="@+id/itemTimeline"></item>
+  <item android:id="@+id/itemPrefs" android:title="@string/title_prefs"></item>
+  <item android:title="@string/title_purge" android:id="@+id/itemPurge"></item>
+    
+  <item android:id="@+id/itemToggleService" android:title="@string/title_service_start"></item>
+
+</menu>
