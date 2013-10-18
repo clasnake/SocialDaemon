@@ -57,6 +57,19 @@
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
+        <receiver android:name=".DaemonWidget" 
+				  android:label="@string/msg_last_timeline_update">
+			<intent-filter>
+				<action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+			</intent-filter>
+			<intent-filter>
+				<action android:name="com.clasnake.socialdaemon.NEW_STATUS" />
+			</intent-filter>
+			<meta-data android:name="android.appwidget.provider"
+					   android:resource="@xml/daemon_widget_info" />
+		</receiver>
+        <provider android:name=".StatusProvider"
+            	  android:authorities="com.clasnake.socialdaemon.statusprovider" />
     </application>
 
 </manifest>

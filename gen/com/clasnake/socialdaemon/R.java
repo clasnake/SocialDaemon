@@ -25,28 +25,30 @@ public final class R {
         public static final int ic_launcher=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f09000f;
+        public static final int action_settings=0x7f090010;
         public static final int buttonUpdate=0x7f090002;
+        public static final int daemon_icon=0x7f090003;
         public static final int editText=0x7f090001;
-        public static final int itemPrefs=0x7f090008;
-        public static final int itemPurge=0x7f09000d;
-        public static final int itemServiceStart=0x7f090009;
-        public static final int itemServiceStop=0x7f09000a;
-        public static final int itemStatus=0x7f09000b;
-        public static final int itemTimeline=0x7f09000c;
-        public static final int itemToggleService=0x7f09000e;
-        public static final int listTimeline=0x7f090006;
+        public static final int itemPrefs=0x7f090009;
+        public static final int itemPurge=0x7f09000e;
+        public static final int itemServiceStart=0x7f09000a;
+        public static final int itemServiceStop=0x7f09000b;
+        public static final int itemStatus=0x7f09000c;
+        public static final int itemTimeline=0x7f09000d;
+        public static final int itemToggleService=0x7f09000f;
+        public static final int listTimeline=0x7f090007;
         public static final int textCount=0x7f090000;
-        public static final int textCreatedAt=0x7f090004;
-        public static final int textText=0x7f090005;
-        public static final int textTimeline=0x7f090007;
-        public static final int textUser=0x7f090003;
+        public static final int textCreatedAt=0x7f090005;
+        public static final int textText=0x7f090006;
+        public static final int textTimeline=0x7f090008;
+        public static final int textUser=0x7f090004;
     }
     public static final class layout {
         public static final int activity_status=0x7f030000;
-        public static final int row=0x7f030001;
-        public static final int timeline=0x7f030002;
-        public static final int timeline_basic=0x7f030003;
+        public static final int daemon_widget=0x7f030001;
+        public static final int row=0x7f030002;
+        public static final int timeline=0x7f030003;
+        public static final int timeline_basic=0x7f030004;
     }
     public static final class menu {
         public static final int menu=0x7f080000;
@@ -59,6 +61,7 @@ public final class R {
         public static final int button_update=0x7f060005;
         public static final int hello_world=0x7f060002;
         public static final int hint_text=0x7f060004;
+        public static final int msg_last_timeline_update=0x7f060015;
         public static final int receive_timeline_notifications_permission_description=0x7f060014;
         public static final int receive_timeline_notifications_permission_label=0x7f060012;
         public static final int send_timeline_notifications_permission_description=0x7f060013;
@@ -106,5 +109,6 @@ public final class R {
     }
     public static final class xml {
         public static final int activity_prefs=0x7f040000;
+        public static final int daemon_widget_info=0x7f040001;
     }
 }

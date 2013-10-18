@@ -22,6 +22,7 @@
     <string name="receive_timeline_notifications_permission_label">Receive notifications</string>
     <string name="send_timeline_notifications_permission_description">Send notifications des</string>
     <string name="receive_timeline_notifications_permission_description">Send notifications des</string>
+    <string name="msg_last_timeline_update">last update</string>
     
 
 </resources>

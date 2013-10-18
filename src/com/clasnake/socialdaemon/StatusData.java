@@ -49,7 +49,11 @@ public class StatusData {
 
   private final DbHelper dbHelper; 
 
-  public StatusData(Context context) {  
+  public DbHelper getDbHelper() {
+	return dbHelper;
+}
+
+public StatusData(Context context) {  
     this.dbHelper = new DbHelper(context);
     Log.i(TAG, "Initialized data");
   }
