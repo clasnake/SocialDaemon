@@ -59,6 +59,10 @@ public final class R {
         public static final int button_update=0x7f060005;
         public static final int hello_world=0x7f060002;
         public static final int hint_text=0x7f060004;
+        public static final int receive_timeline_notifications_permission_description=0x7f060014;
+        public static final int receive_timeline_notifications_permission_label=0x7f060012;
+        public static final int send_timeline_notifications_permission_description=0x7f060013;
+        public static final int send_timeline_notifications_permission_label=0x7f060011;
         public static final int summary_password=0x7f06000b;
         public static final int summary_urlroot=0x7f06000c;
         public static final int summary_username=0x7f06000a;

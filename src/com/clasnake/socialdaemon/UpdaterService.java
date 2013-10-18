@@ -8,6 +8,8 @@ import android.util.Log;
 
 public class UpdaterService extends Service{
 
+	public static final String NEW_STATUS_INTENT = "com.clasnake.socialdaemon.NEW_STATUS";
+	public static final String NEW_STATUS_EXTRA_COUNT = "NEW_STATUS_EXTRA_COUNT";
 	static final String TAG = "UpdaterService";
 	static final int DELAY = 60000;
 	private boolean runFlag = false;
@@ -53,6 +55,8 @@ public class UpdaterService extends Service{
 	}
 	
 	private class Updater extends Thread{
+		static final String RECEIVE_TIMELINE_NOTIFICATIONS = "com.clasnake.socialdaemon.RECEIVE_TIMELINE_NOTIFICATIONS";
+		Intent intent;
 
 		public Updater(){
 			super("UpdaterService-Updater");
@@ -69,6 +73,10 @@ public class UpdaterService extends Service{
 					int newUpdates = UpdaterService.this.daemon.fetchStatusUpdates();
 					if(newUpdates > 0){
 						Log.d(TAG, "We have a new status");
+						intent = new Intent(NEW_STATUS_INTENT);
+						intent.putExtra(NEW_STATUS_EXTRA_COUNT, newUpdates);
+						updaterService.sendBroadcast(intent, RECEIVE_TIMELINE_NOTIFICATIONS);
+						Log.d("TimelineReceiver", "onSent");
 					}
 					Thread.sleep(DELAY);
 				}catch(InterruptedException e){

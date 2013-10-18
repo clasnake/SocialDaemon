@@ -18,5 +18,10 @@
     <string name="title_service_stop">Stop Service</string>
     <string name="title_timeline">My timeline</string>
     <string name="title_purge">Purge</string>
+    <string name="send_timeline_notifications_permission_label">Send notifications</string>
+    <string name="receive_timeline_notifications_permission_label">Receive notifications</string>
+    <string name="send_timeline_notifications_permission_description">Send notifications des</string>
+    <string name="receive_timeline_notifications_permission_description">Send notifications des</string>
+    
 
 </resources>

@@ -1,7 +1,9 @@
 package com.clasnake.socialdaemon;
 
-import android.app.Activity;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,11 +12,14 @@ import android.widget.Toast;
 
 public class TimelineActivity extends BaseActivity{
 
+	static final String SEND_TIMELINE_NOTIFICATIONS = "com.clasnake.socialdaemon.SEND_TIMELINE_NOTIFICATIONS";
 	Cursor cursor;
 	StatusData statusData;
 	DaemonApplication daemon;
 	ListView listTimeline;
 	TimelineAdapter adapter;
+	TimelineReceiver receiver;
+	IntentFilter filter;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +35,8 @@ public class TimelineActivity extends BaseActivity{
 		}
 		listTimeline = (ListView)findViewById(R.id.listTimeline);
 		statusData = new StatusData(this);
-		
+		filter = new IntentFilter(UpdaterService.NEW_STATUS_INTENT);
+		receiver = new TimelineReceiver();
 	}
 
 
@@ -44,14 +50,32 @@ public class TimelineActivity extends BaseActivity{
 		adapter = new TimelineAdapter(this, cursor);
 		Log.d("asd", adapter.toString());
 		listTimeline.setAdapter(adapter);
+
+		registerReceiver(receiver, filter, SEND_TIMELINE_NOTIFICATIONS, null);
+	}
+	
+	@Override
+	protected void onPause() {
+		// TODO Auto-generated method stub
+		super.onPause();
+		try{
+			unregisterReceiver(receiver);
+		}catch(Exception e){
+			Log.d("ReceiverError", e+"");
+		}
+	}
+
+	class TimelineReceiver extends BroadcastReceiver{
+
+		@SuppressWarnings("deprecation")
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			// TODO Auto-generated method stub
+			cursor.requery();
+			adapter.notifyDataSetChanged();
+			Log.d("TimelineReceiver", "OnReceived");
+		}
 		
-//		String user, text, output;
-//		while(cursor.moveToNext()){
-//			user = cursor.getString(cursor.getColumnIndex(StatusData.C_USER));
-//			text = cursor.getString(cursor.getColumnIndex(StatusData.C_TEXT));
-//			output = String.format("%s: %s\n", user, text);
-//			textTimeline.append(output);
-//		}
 	}
 
 }
